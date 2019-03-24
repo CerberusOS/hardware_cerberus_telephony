@@ -23,18 +23,18 @@ import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyComponentFactory;
 
-import com.qualcomm.qti.internal.telephony.ArrowExtTelephony;
+import com.qualcomm.qti.internal.telephony.CerberusExtTelephony;
 
 public class QtiTelephonyComponentFactory extends TelephonyComponentFactory {
 
     @Override
     public void makeExtTelephonyClasses(Context context,
             Phone[] phones, CommandsInterface[] commandsInterfaces) {
-        Rlog.d(LOG_TAG, "makeArrowExtTelephonyClasses");
+        Rlog.d(LOG_TAG, "makeCerberusExtTelephonyClasses");
         try {
-            ArrowExtTelephony.init(context, phones, commandsInterfaces);
+            CerberusExtTelephony.init(context, phones, commandsInterfaces);
         } catch (NoClassDefFoundError e) {
-            Rlog.e(LOG_TAG, "Error creating ArrowExtTelephony", e);
+            Rlog.e(LOG_TAG, "Error creating CerberusExtTelephony", e);
         }
     }
 }

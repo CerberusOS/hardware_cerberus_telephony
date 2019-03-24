@@ -54,7 +54,7 @@ import static android.telephony.TelephonyManager.MultiSimVariants.DSDA;
 
 import static com.android.internal.telephony.uicc.IccCardStatus.CardState.CARDSTATE_PRESENT;
 
-public class ArrowExtTelephony extends IExtTelephony.Stub {
+public class CerberusExtTelephony extends IExtTelephony.Stub {
 
     class UiccStatus {
 
@@ -91,7 +91,7 @@ public class ArrowExtTelephony extends IExtTelephony.Stub {
     // From IccCardProxy.java
     private static final int EVENT_ICC_CHANGED = 3;
 
-    private static ArrowExtTelephony sInstance;
+    private static CerberusExtTelephony sInstance;
 
     private CommandsInterface[] mCommandsInterfaces;
     private Context mContext;
@@ -110,16 +110,16 @@ public class ArrowExtTelephony extends IExtTelephony.Stub {
         sInstance = getInstance(context, phones, commandsInterfaces);
     }
 
-    public static ArrowExtTelephony getInstance(Context context, Phone[] phones,
+    public static CerberusExtTelephony getInstance(Context context, Phone[] phones,
             CommandsInterface[] commandsInterfaces) {
         if (sInstance == null) {
-            sInstance = new ArrowExtTelephony(context, phones, commandsInterfaces);
+            sInstance = new CerberusExtTelephony(context, phones, commandsInterfaces);
         }
 
         return sInstance;
     }
 
-    private ArrowExtTelephony(Context context, Phone[] phones,
+    private CerberusExtTelephony(Context context, Phone[] phones,
             CommandsInterface[] commandsInterfaces) {
         if (ServiceManager.getService(EXT_TELEPHONY_SERVICE_NAME) == null) {
             ServiceManager.addService(EXT_TELEPHONY_SERVICE_NAME, this);
